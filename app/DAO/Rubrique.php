@@ -26,4 +26,16 @@ class Rubrique extends Model
         return $this->belongsTo(Marche::class, 'id_marche', 'id');
     }
 
+
+    /* --------- Ce qui est rajouté dernièrement afin d'avoir le lien entre la table constat --------- */
+
+
+    /*
+     * Avoir le marché en relation avec la rubrique
+    */
+    public function constat()
+    {
+        return $this->belongsTo(Constat::class, 'id_constat', 'id');
+    }
+
 }

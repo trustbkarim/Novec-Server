@@ -20,6 +20,11 @@ class ConstatController extends Controller
         $constat = Constat::all();
 
         return response()->json($constat);
+
+        /*$constat = Constat::with(['sousRubrique', 'rubrique', 'marche'])->get();
+
+        return response()->json($constat);*/
+
     }
 
     /**

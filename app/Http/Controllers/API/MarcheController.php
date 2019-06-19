@@ -20,6 +20,7 @@ class MarcheController extends Controller
         $marches = Marche::all();
 
         return response()->json($marches);
+
     }
 
     /**

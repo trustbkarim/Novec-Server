@@ -69,3 +69,9 @@ Route::resource('periode', 'API\PeriodeController')
     ->middleware(['cors'])
     /*->middleware(['auth:api'])*/
     ->except(['create', 'edit']);
+
+// Route pour Sous-Rubrique view CRUD
+Route::resource('sousRubriqueView', 'API\sousRubriqueViewController')
+    ->middleware(['cors'])
+    /*->middleware(['auth:api'])*/
+    ->except(['create', 'edit']);

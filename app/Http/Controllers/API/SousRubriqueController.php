@@ -20,6 +20,10 @@ class SousRubriqueController extends Controller
         $sous_rubrique = Sous_Rubrique::all();
 
         return response()->json($sous_rubrique);
+
+        /*$sous_rubrique = Sous_Rubrique::with(['constat'])->get();
+
+        return response()->json($sous_rubrique); */
     }
 
     /**

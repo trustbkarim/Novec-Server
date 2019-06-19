@@ -32,5 +32,28 @@ class Marche extends Model
     public function rubriques()
     {
         return $this->hasMany(Rubrique::class, 'id_marche', 'id_marche');
+        /*return $this->hasMany(Rubrique::class, 'id_rubrique', 'id_marche');*/
     }
+
+
+    /* --------- Ce qui est rajouté dernièrement afin d'avoir le lien entre la table constat --------- */
+
+
+    /*
+     * Avoir les constats en relation avec le marché
+    */
+    public function constats()
+    {
+        return $this->hasMany(Constat::class, 'id_constat', 'id_marche');
+    }
+
+    /*
+     * Avoir les sous-rubriques en relation avec le marché
+    */
+    public function sousRubriques()
+    {
+        return $this->hasMany(Sous_Rubrique::class, 'id_sous_rubrique', 'id_marche');
+    }
+
+
 }

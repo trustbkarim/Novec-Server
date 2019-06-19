@@ -26,4 +26,16 @@ class Sous_Rubrique extends Model
         return $this->hasOne(Constat::class, 'id_constat', 'id_sous_rubrique');
     }
 
+
+    /* --------- Ce qui est rajouté dernièrement afin d'avoir le lien entre la table marché --------- */
+
+
+    /*
+     * Avoir les constats en relation avec le marché
+    */
+    public function marche()
+    {
+        return $this->belongsTo(Marche::class, 'id_marche', 'id_sous_rubrique');
+    }
+
 }
