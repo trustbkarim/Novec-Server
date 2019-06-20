@@ -75,3 +75,9 @@ Route::resource('sousRubriqueView', 'API\sousRubriqueViewController')
     ->middleware(['cors'])
     /*->middleware(['auth:api'])*/
     ->except(['create', 'edit']);
+
+// Route pour Rubrique view CRUD
+Route::resource('rubriqueView', 'API\RubriqueViewController')
+    ->middleware(['cors'])
+    /*->middleware(['auth:api'])*/
+    ->except(['create', 'edit']);

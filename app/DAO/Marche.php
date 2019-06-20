@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Marche extends Model
 {
-    protected $table = 'marché';
+    protected $table = 'marches';
     public $timestamps = true;
     public $primaryKey = 'id_marche';
 
@@ -32,7 +32,6 @@ class Marche extends Model
     public function rubriques()
     {
         return $this->hasMany(Rubrique::class, 'id_marche', 'id_marche');
-        /*return $this->hasMany(Rubrique::class, 'id_rubrique', 'id_marche');*/
     }
 
 

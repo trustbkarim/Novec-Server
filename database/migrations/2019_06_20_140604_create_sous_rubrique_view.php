@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 
 class CreateSousRubriqueView extends Migration
 {
@@ -15,10 +14,11 @@ class CreateSousRubriqueView extends Migration
     public function up()
     {
         DB::connection()->getPdo()->exec("CREATE VIEW taux_avancement_sous_rubrique as 
-        SELECT c.id_marche, c.id_rubrique, c.id_sous_rubrique, sb.lib_sous_rubrique, 
-        c.id_periode, sb.poids, (c.valeur_constat / sb.valeur_cible) as 'taux_avancement_sous_rubrique'
-        from sous_rubriques sb inner join constats c 
-        on sb.id_sous_rubrique = c.id_sous_rubrique");
+	    SELECT m.intitule as 'marche', r.lib_rubrique as 'rubrique', sb.lib_sous_rubrique as 'sous_rubrique', p.lib_periode as 'periode', (c.valeur_constat / sb.valeur_cible) as 'taux_avancement_sous_rubrique' FROM 
+	    periodes p inner join constats c on p.id_periode = c.id_periode
+	    inner join sous_rubriques sb on c.id_sous_rubrique = sb.id_sous_rubrique
+	    inner join rubriques r on r.id = sb.id_rubrique
+	    inner join marches m on m.id_marche = r.id_marche");
     }
 
     /**
