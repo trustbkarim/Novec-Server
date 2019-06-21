@@ -81,3 +81,9 @@ Route::resource('rubriqueView', 'API\RubriqueViewController')
     ->middleware(['cors'])
     /*->middleware(['auth:api'])*/
     ->except(['create', 'edit']);
+
+// Route pour Marche view CRUD
+Route::resource('marcheView', 'API\marcheViewController')
+    ->middleware(['cors'])
+    /*->middleware(['auth:api'])*/
+    ->except(['create', 'edit']);
