@@ -51,11 +51,10 @@ class ConstatController extends Controller
     {
         $constat = new Constat();
 
-        $constat->id_constat = $request->get('id_constat');
-        $constat->id_marché = $request->get('id_marché');
+        $constat->id_marche = $request->get('id_marche');
         $constat->id_rubrique = $request->get('id_rubrique');
         $constat->id_sous_rubrique = $request->get('id_sous_rubrique');
-        $constat->id_période = $request->get('id_période');
+        $constat->id_periode = $request->get('id_periode');
         $constat->valeur_constat = $request->get('valeur_constat');
 
         $constat->save();
@@ -102,19 +101,20 @@ class ConstatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $constat = Constat::where('id_constat', $id)->first();
+        /*$constat = Constat::where('id_constat', $id)->first(); */
 
-        if($constat != null)
-        {
-            $constat->id_constat = $request->get('id_constat');
-            $constat->id_marché = $request->get('id_marché');
+        $constat = Constat::find($id);
+
+        //if($constat != null)
+        //{
+            $constat->id_marche = $request->get('id_marche');
             $constat->id_rubrique = $request->get('id_rubrique');
             $constat->id_sous_rubrique = $request->get('id_sous_rubrique');
-            $constat->id_période = $request->get('id_période');
+            $constat->id_periode = $request->get('id_periode');
             $constat->valeur_constat = $request->get('valeur_constat');
 
             $constat->save();
-        }
+        //}
 
         return response()->json($constat);
     }

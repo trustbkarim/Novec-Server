@@ -87,3 +87,9 @@ Route::resource('marcheView', 'API\marcheViewController')
     ->middleware(['cors'])
     /*->middleware(['auth:api'])*/
     ->except(['create', 'edit']);
+
+// Route pour Table Informations view CRUD
+Route::resource('tableInformation', 'API\TableInformationsViewController')
+    ->middleware(['cors'])
+    /*->middleware(['auth:api'])*/
+    ->except(['create', 'edit']);
