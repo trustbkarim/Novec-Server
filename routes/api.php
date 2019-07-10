@@ -93,3 +93,9 @@ Route::resource('tableInformation', 'API\TableInformationsViewController')
     ->middleware(['cors'])
     /*->middleware(['auth:api'])*/
     ->except(['create', 'edit']);
+
+// Route pour Table periodes view CRUD
+Route::resource('distinctPeriodes', 'API\PeriodeViewController')
+    ->middleware(['cors'])
+    /*->middleware(['auth:api'])*/
+    ->except(['create', 'edit']);
