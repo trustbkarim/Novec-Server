@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeriodesView extends Migration
+class DropNumMarcheColumnForMarchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePeriodesView extends Migration
      */
     public function up()
     {
-        DB::connection()->getPdo()->exec("create view periodes_view as
-        select distinct periode as 'date_debut', 
-        periode as 'date_fin' from table_informations ORDER BY date_debut ASC");
-
+        Schema::table('marches', function($table) {
+            $table->dropColumn('num_marche');
+        });
     }
 
     /**
@@ -26,6 +25,6 @@ class CreatePeriodesView extends Migration
      */
     public function down()
     {
-        DB::connection()->getPdo()->exec("drop view periodes_view");
+        //
     }
 }

@@ -14,12 +14,12 @@ class CreateMarcheTb extends Migration
     public function up()
     {
         Schema::create('marché', function (Blueprint $table) {
-            $table->increments('id_marché');
+            $table->integer('id_marché');
             $table->string('num_marché');
             $table->string('intitulé');
             $table->integer('durée_jour');
             $table->integer('durée_mois');
-            $table->decimal('montant_marché', 6, 2);
+            $table->decimal('montant_marché', 10, 2);
             $table->timestamps();
         });
     }
